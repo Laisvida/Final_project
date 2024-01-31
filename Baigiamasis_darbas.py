@@ -216,15 +216,15 @@ for year in years:
 
                 result_df = pd.concat([df_eff, df_pts, df_fg, df_ft, df_reb, df_ast, df_bs, df_st, df_to, df_min],
                                       axis=1)
-                # result_df.to_csv('LMKL_statistika10.csv', index=False)
+                result_df.to_csv('LMKL_statistika10.csv', index=False)
                 # print(result_df)
 
                 df_ast['AST'] = pd.to_numeric(df_ast['AST'].str.replace(',', '.'))
                 df_ast_top10 = df_ast.sort_values(by='AST', ascending=False).head(5)
                 plt.figure(figsize=(8, 6))
                 plt.bar(df_ast_top10['Žaidėja'], df_ast_top10['AST'], color='orange')
-                plt.title('Geriausių 10 žaidėjų pagal rezultatyvius perdavimus')
-                plt.xlabel('Žaidėjas')
+                plt.title('5 geriausių žaidėjos pagal rezultatyvius perdavimus')
+                plt.xlabel('Žaidėja')
                 plt.ylabel('Rezultatyvūs perdavimai')
                 plt.xticks(rotation=35, ha='right', fontsize=7)
                 # plt.show()
@@ -233,8 +233,8 @@ for year in years:
                 df_fg_top5 = df_fg.sort_values(by='FG%', ascending=False).head(5)
                 plt.figure(figsize=(8, 6))
                 plt.bar(df_fg_top5['Žaidėja'], df_fg_top5['FG%'], color='orange')
-                plt.title('Geriausios 5 žaidėjos pagal metimų iš žaidimo pataikymo procentą (2018/2022)')
-                plt.xlabel('Žaidėjas')
+                plt.title('Geriausios 5 žaidėjos pagal metimų iš žaidimo pataikymo procentą (2018/2023)')
+                plt.xlabel('Žaidėja')
                 plt.ylabel('Metimų iš žaidimo procentas')
                 plt.xticks(rotation=35, ha='right', fontsize=7)
                 for i, v in enumerate(df_fg_top5['FG%']):
