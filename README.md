@@ -17,8 +17,8 @@ Atlikti palyginamąją analizę tarp _skirtingų sezonų, sportininkių ir koman
 programavimo kalbą, CSV failus ir _PostgreSQL duomenų bazę_.
 
 ### Taikomosios žinios:
-Naudojamos bibliotekos: BeautifulSoup, Pandas, MatplotLib, SeaBorn, Selenium,..........
-
+Naudojamos bibliotekos: BeautifulSoup, Pandas, MatplotLib, Seaborn, NumPy, PIL, _Selenium,..........
+_
 ### postgres .py
 _Naudotas duomenų bazės adapteris: psycopg2_
   1.
@@ -32,18 +32,20 @@ Duomenų gavimas iš URL ( https://moterulyga.lt/lygos/164-moteru-lkl-a-divizion
 Baigiamasis_darbas.py
 Tai yra pagrindinė projekto byla, kurioje buvo atlikta visa analizė. _Visi vaizdai yra valdomi funkcijomis, kurios
 padeda atskirti visus kode esančius grafikus.
-_
+
+
+Iš surinktų duomenų išrinkome visų sezonų taikliausias žaidėjas ir atvaizdavome grafike
 
 ![Top 5 taiklausios žaidėjos 2018-2023 metais](https://github.com/Laisvida/Final_project/blob/main/Top%205%20pagal%20metim%C5%B3%20pataikymo%20procent%C4%85.PNG)
 
 ![Top 5 taiklausios žaidėjos 2018-2023 metais](./main/Top%205%20pagal%20metim%C5%B3%20pataikymo%20procent%C4%85.PNG)
 
-
+Šiame grafike atvaizdavome 5 visų mūsų nagrinėtų sezonų krepšininkes, kurios žaidžia daugiausiai laiko per veržybas.
 
 ![Top 5 daugiausia laiko žaidžiančios žaidėjos](https://github.com/Laisvida/Final_project/blob/main/Top%205%20daugiausiai%20laiko%20%C5%BEaid%C5%BEian%C4%8Dios%20krep%C5%A1inink%C4%97s.PNG)
 ![Top 5 daugiausia laiko žaidžiančios žaidėjos](./main/Top%205%20daugiausiai%20laiko%20%C5%BEaid%C5%BEian%C4%8Dios%20krep%C5%A1inink%C4%97s.PNG])
 
-
+Varžybų rezultatui didelę įtaką daro rezultatyvūs perdavimai. Vizualizavome 5 geriausias sportininkes pagal rezultatyvius perdavimus 
 
 
 ![Top 5 pagal rezultatyvius perdavimus](https://github.com/Laisvida/Final_project/blob/main/Top_5_pagal_rezultatyvius_perdavimus.png)
@@ -51,14 +53,12 @@ _
 
 
 
-![Logotipas](https://github.com/Laisvida/Final_project/blob/main/Logo.PNG)
-
 
 ![Koreliacija tarp pasirinktų statistinių rodiklių](https://github.com/Laisvida/Final_project/blob/main/Koreliacija%20tarp%20pasirinkt%C5%B3%20statistini%C5%B3%20rodikli%C5%B3.PNG)
 
 ![Koreliacija tarp pasirinktų statistinių rodiklių](./main/Koreliacija%20tarp%20pasirinkt%C5%B3%20statistini%C5%B3%20rodikli%C5%B3.PNG)
 
-
+![Logotipas](https://github.com/Laisvida/Final_project/blob/main/Logo.PNG)
 
 
 
