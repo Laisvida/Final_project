@@ -51,12 +51,20 @@ Varžybų rezultatui didelę įtaką daro rezultatyvūs perdavimai. Grafike vizu
 ![Top 5 pagal rezultatyvius perdavimus](https://github.com/Laisvida/Final_project/blob/main/Top_5_pagal_rezultatyvius_perdavimus.png)
 
 
+Norėjome panaudoti išmoktas žinias, sukūrėme koreliacijos matricą, kuri matuoja koreliacijos koeficientus tarp stulpelių 'EFF', 'PTS', 'TO', 'ST', 'MIN' ir 'REB'.
 
+Pritaikėme seaborn biblioteką koreliacijos matricos vizualizacijai , formatas '.2f' nurodo, kad skaičiai bus rodomi su dviem skaičiais po kablelio.
+Galutinis rezultatas parodo koreliacijos koeficientus tarp 'EFF', 'PTS', 'TO', 'ST', 'MIN' ir 'REB' stulpelių. Tai gali padėti identifikuoti, kaip šie statistikos rodikliai yra susiję tarpusavyje.
+Matrica vizualiai atspindi, kokio stiprumo yra koreliacija tarp šių skaičiavimo stulpelių.
 
 
 ![Koreliacija tarp pasirinktų statistinių rodiklių](https://github.com/Laisvida/Final_project/blob/main/Koreliacija%20tarp%20pasirinkt%C5%B3%20statistini%C5%B3%20rodikli%C5%B3.PNG)
 
 ![Koreliacija tarp pasirinktų statistinių rodiklių](./main/Koreliacija%20tarp%20pasirinkt%C5%B3%20statistini%C5%B3%20rodikli%C5%B3.PNG)
+
+
+
+
 
 ![Logotipas](https://github.com/Laisvida/Final_project/blob/main/Logo.PNG)
 
