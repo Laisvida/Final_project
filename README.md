@@ -28,8 +28,8 @@ Naudojantis Pandas DataFrame perkelti visi data_listai į bendrą lentelę.
 
 ### Baigiamasis_darbas.py
 
-Tai yra pagrindinė projekto byla, kurioje buvo atlikta visa analizė. _Visi vaizdai yra valdomi funkcijomis, kurios
-padeda atskirti visus kode esančius grafikus.
+Tai yra pagrindinė projekto byla, kurioje buvo atlikta visa analizė. Visi vaizdai yra valdomi funkcijomis, kurios padeda atskirti visus kode esančius grafikus.
+Iš surinktų duomenų išrinkome 2018-2022 metų sezonų 5 taikliausias žaidėjas ir atvaizdavome grafike naudodamiesi MatplotLib.
 
 
 Iš surinktų duomenų išrinkome visų sezonų taikliausias žaidėjas ir atvaizdavome grafike
