@@ -58,7 +58,7 @@ koreliacijos koeficientus tarp 'EFF', 'PTS', 'TO', 'ST', 'MIN' ir 'REB' stulpeli
 ![Koreliacija tarp pasirinktų statistinių rodiklių](https://github.com/Laisvida/Final_project/blob/main/Koreliacija%20tarp%20pasirinkt%C5%B3%20statistini%C5%B3%20rodikli%C5%B3.PNG)
 
 
-Mokymų metu sužinotą informaciją apie NumPy biblioteką panaudojome logotipo keitimui. Spalvotą paveikslėlį pakeitėme į pilkąją ir normalizuotą.
+Mokymų metu sužinotą informaciją apie NumPy biblioteką panaudojome logotipo keitimui. Originalų paveikslėlį pakeitėme į pilką ir normalizuotą.
 Paveikslėlio vizualizacijai panaudota Matplotlib biblioteka. Gavome 3 skirtingus paveikslėlius
 + Originalus paveikslėlis.
 - Pilkas paveikslėlis.
