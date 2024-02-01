@@ -33,7 +33,6 @@ Iš surinktų duomenų išrinkome visų sezonų taikliausias žaidėjas ir atvai
 
 ![Top 5 taiklausios žaidėjos 2018-2022 metais](https://github.com/Laisvida/Final_project/blob/main/Top%205%20pagal%20metim%C5%B3%20pataikymo%20procent%C4%85.PNG)
 
-![Top 5 taiklausios žaidėjos 2018-2022 metais](./main/Top%205%20pagal%20metim%C5%B3%20pataikymo%20procent%C4%85.PNG)
 
 Šiame grafike atvaizdavome 5 visų mūsų nagrinėtų sezonų krepšininkes, kurios žaidžia daugiausiai laiko per varžybas.
 
