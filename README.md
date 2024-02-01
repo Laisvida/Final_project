@@ -37,7 +37,7 @@ Iš surinktų duomenų išrinkome visų sezonų taikliausias žaidėjas ir atvai
 ![Top 5 taiklausios žaidėjos 2018-2022 metais](https://github.com/Laisvida/Final_project/blob/main/Top%205%20pagal%20metim%C5%B3%20pataikymo%20procent%C4%85.PNG)
 
 
-Šiame grafike atvaizdavome 5 visų mūsų nagrinėtų sezonų krepšininkes, kurios žaidžia daugiausiai laiko per varžybas.
+Šiame grafike atvaizdavome 5 visų mūsų nagrinėtų sezonų krepšininkes, kurios vidutiniškai žaidė daugiausiai laiko per varžybas.
 
 ![Top 5 daugiausia laiko žaidžiančios žaidėjos](https://github.com/Laisvida/Final_project/blob/main/Top%205%20daugiausiai%20laiko%20%C5%BEaid%C5%BEian%C4%8Dios%20krep%C5%A1inink%C4%97s.PNG)
 
@@ -45,7 +45,7 @@ Iš surinktų duomenų išrinkome visų sezonų taikliausias žaidėjas ir atvai
 Varžybų rezultatui didelę įtaką daro rezultatyvūs perdavimai. Grafike vizualizavome 5 geriausias sportininkes pagal rezultatyvius perdavimus 
 
 
-![Top 5 pagal rezultatyvius perdavimus](https://github.com/Laisvida/Final_project/blob/main/Top_5_pagal_rezultatyvius_perdavimus.png)
+![Top 5 pagal rezultatyvius perdavimus](https://github.com/Laisvida/Final_project/blob/main/Top%205%20pagal%20rezultatyvius%20perdavimus.PNG)
 
 
 Norėjome panaudoti išmoktas žinias, sukūrėme koreliacijos matricą, kuri matuoja koreliacijos koeficientus tarp stulpelių 'EFF', 'PTS', 'TO', 'ST', 'MIN' ir 'REB'.
