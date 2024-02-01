@@ -21,7 +21,10 @@ Naudojamos bibliotekos: BeautifulSoup, Pandas, MatplotLib, Seaborn, NumPy, PIL
 
 ### web_scrap .py 
 
-Duomenų gavimas iš URL ( https://moterulyga.lt/lygos/164-moteru-lkl-a-divizionas/statistika.html)
+Duomenų gavimas iš URL ( https://moterulyga.lt/lygos/164-moteru-lkl-a-divizionas/statistika.html). 
+Reikalingų lentelių (informacijos) išgavimas naudojantis Beautiful soup pagal atitinkamas statistines katerorijas.
+Naudojantis IF funkcija sukurta data_list'ai kiekvienai kategorijai.
+Naudojantis Pandas DataFrame perkelti visi data_listai į bendrą lentelę.
 
 ### Baigiamasis_darbas.py
 
