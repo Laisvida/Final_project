@@ -41,7 +41,7 @@ _
 
 
 ![Top 5 daugiausia laiko žaidžiančios žaidėjos](https://github.com/Laisvida/Final_project/blob/main/Top%205%20daugiausiai%20laiko%20%C5%BEaid%C5%BEian%C4%8Dios%20krep%C5%A1inink%C4%97s.PNG)
-![Top 5 daugiausia laiko žaidžiančios žaidėjos]([./main/Top%205%20daugiausiai%20laiko%20%C5%BEaid%C5%BEian%C4%8Dios%20krep%C5%A1inink%C4%97s.PNG]
+![Top 5 daugiausia laiko žaidžiančios žaidėjos](./main/Top%205%20daugiausiai%20laiko%20%C5%BEaid%C5%BEian%C4%8Dios%20krep%C5%A1inink%C4%97s.PNG])
 
 
 
@@ -52,6 +52,12 @@ _
 
 
 ![Logotipas](https://github.com/Laisvida/Final_project/blob/main/Logo.PNG)
+
+
+![Koreliacija tarp pasirinktų statistinių rodiklių](https://github.com/Laisvida/Final_project/blob/main/Koreliacija%20tarp%20pasirinkt%C5%B3%20statistini%C5%B3%20rodikli%C5%B3.PNG)
+
+![Koreliacija tarp pasirinktų statistinių rodiklių](./main/Koreliacija%20tarp%20pasirinkt%C5%B3%20statistini%C5%B3%20rodikli%C5%B3.PNG)
+
 
 
 
