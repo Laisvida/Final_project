@@ -16,7 +16,7 @@ Atlikti palyginamąją analizę, išrinkti TOP 5 visų sezonų žaidėjas.
 Šiame projekte išsamiai analizei atlikti bei praktikoje pritaikyti išmoktą teoriją, naudojome Python
 programavimo kalbą, CSV failus.
 
-### Taikomosios žinios:
+## Taikomosios žinios:
 Naudojamos bibliotekos: BeautifulSoup, Pandas, MatplotLib, Seaborn, NumPy, PIL
 
 ### web_scrap .py 
@@ -43,7 +43,8 @@ Iš surinktų duomenų išrinkome visų sezonų taikliausias žaidėjas ir atvai
 
 
 
-Varžybų rezultatui didelę įtaką daro rezultatyvūs perdavimai. Grafike vizualizavome 5 sportininkes atlikusias vidutiniškai daugiausia rezultatyvių perdavimų 2018-2022 metų sezonuose.
+Varžybų rezultatui didelę įtaką daro rezultatyvūs perdavimai. Grafike vizualizavome 5 sportininkes atlikusias vidutiniškai daugiausia rezultatyvių
+perdavimų 2018-2022 metų sezonuose.
 
 ![Top 5 pagal rezultatyvius perdavimus](https://github.com/Laisvida/Final_project/blob/main/Top%205%20pagal%20rezultatyvius%20perdavimus.PNG)
 
@@ -65,11 +66,14 @@ Paveikslėlio vizualizacijai panaudota Matplotlib biblioteka. Gavome 3 skirtingu
 * Paveikslėlis po normalizacijos.
 
 
-
-
 ![Logotipas](https://github.com/Laisvida/Final_project/blob/main/Logotipas.PNG)
 
+## Išvados
 
+Atlikta analizė parodo Lietuvos moterų krepšinio lygos 2018-2022 metų sezonų rezultatyviausias, taikliausias ir daugiausiai rezultatyvių
+perdavimų atliekančias žaidėjas. Apskaičiavę koreliacijos koeficiantus tarp pasirinktų statistinių kategorijų
+('EFF', 'PTS', 'TO', 'ST', 'MIN' ir 'REB'), nustatėme, kad stipriausia koreliaciją yra tarp PTS ir EFF (0,95), 
+kas atspindi jog daug taškų renkanti žaidėja renka ir didelį naudingumo balų skaičių.
 
 
 
