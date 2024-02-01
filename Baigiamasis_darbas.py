@@ -6,6 +6,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 from PIL import Image
 
+#pasirenkame 10 statistinių kategorijų, kur nurodome jų pradinius tinklapius, o vietoje konkrečių metų pakeičiame į {}
 url_start = "https://moterulyga.lt/lygos/164-moteru-lkl-a-divizionas/statistika.html?fgroup=players&fseason={}&fmonth=0&stage=0&fpos=eff&sort=average&games_type=all"
 url_pts = "https://moterulyga.lt/lygos/164-moteru-lkl-a-divizionas/statistika.html?fgroup=players&fseason={}&fmonth=0&stage=0&fpos=pts&sort=average&games_type=all"
 url_fg = "https://moterulyga.lt/lygos/164-moteru-lkl-a-divizionas/statistika.html?fgroup=players&fseason={}&fmonth=0&stage=0&fpos=fg&sort=average&games_type=all"
@@ -17,7 +18,9 @@ url_st = "https://moterulyga.lt/lygos/164-moteru-lkl-a-divizionas/statistika.htm
 url_to = "https://moterulyga.lt/lygos/164-moteru-lkl-a-divizionas/statistika.html?fgroup=players&fseason={}&fmonth=0&stage=0&fpos=to&sort=average&games_type=all"
 url_min = "https://moterulyga.lt/lygos/164-moteru-lkl-a-divizionas/statistika.html?fgroup=players&fseason={}&fmonth=0&stage=0&fpos=min&sort=average&games_type=all"
 
+#pasirenkame analizuojamus sezonus
 years = list(range(2018, 2023))
+#sukuriame data_list'us kiekvienai analizuojamai kategorijai, kad galėtume vėliau sukurti DataFrame
 data_list_eff = []
 data_list_pts = []
 data_list_fg = []
@@ -30,6 +33,7 @@ data_list_to = []
 data_list_min = []
 data_list = []
 
+#sukuriame stulpelių pavadinimus savo busiems DataFrame
 column_names = {
     "EFF": ["Metai", "Nr", "Žaidėja", "EFF", "Komanda"],
     "PTS": ["Metai", "Nr", "Žaidėja", "PTS", "Komanda"],
@@ -43,6 +47,7 @@ column_names = {
     "MIN": ["Metai", "Nr", "Žaidėja", "MIN", "Komanda"],
 }
 
+#Sukuriame ciklus, kurie sukuria url adresus pagal year listą
 for year in years:
     url = url_start.format(year)
     url_pts_year = url_pts.format(year)
@@ -55,6 +60,7 @@ for year in years:
     url_to_year = url_to.format(year)
     url_min_year = url_min.format(year)
 
+#Sukuriame užklausas į nurodytus URL adresus
     response_eff = requests.get(url)
     response_pts = requests.get(url_pts_year)
     response_fg = requests.get(url_fg_year)
@@ -66,6 +72,7 @@ for year in years:
     response_to = requests.get(url_to_year)
     response_min = requests.get(url_min_year)
 
+#Su BeautifulSoup pagalba perkeliame internete esantį turinį
     soup_eff = BeautifulSoup(response_eff.text, 'html.parser')
     soup_pts = BeautifulSoup(response_pts.text, 'html.parser')
     soup_fg = BeautifulSoup(response_fg.text, 'html.parser')
@@ -77,6 +84,7 @@ for year in years:
     soup_to = BeautifulSoup(response_to.text, 'html.parser')
     soup_min = BeautifulSoup(response_min.text, 'html.parser')
 
+#Ieškome lentelės su clasės pavadinimu list02
     table_eff = soup_eff.find('table', class_='list02')
     table_pts = soup_pts.find('table', class_='list02')
     table_fg = soup_fg.find('table', class_='list02')
@@ -88,6 +96,7 @@ for year in years:
     table_to = soup_to.find('table', class_='list02')
     table_min = soup_min.find('table', class_='list02')
 
+#Lentelėje ieškome ar yra elementas tbody
     if table_eff and table_pts and table_fg and table_ft and table_reb and table_ast and table_bs and table_st and table_to and table_min:
         body_eff = table_eff.find("tbody")
         body_pts = table_pts.find("tbody")
@@ -100,6 +109,7 @@ for year in years:
         body_to = table_to.find("tbody")
         body_min = table_min.find("tbody")
 
+#Elmente tbody ieškome elementų tr
         if body_eff and body_pts and body_fg and body_ft and body_reb and body_ast and body_bs and body_st and body_to and body_min:
             rows_eff = body_eff.find_all("tr")
             rows_pts = body_pts.find_all("tr")
@@ -112,6 +122,7 @@ for year in years:
             rows_to = body_to.find_all("tr")
             rows_min = body_min.find_all("tr")
 
+#Ieškome stulpelių td
             for row_eff, row_pts, row_fg, row_ft, row_reb, row_ast, row_bs, row_st, row_to, row_min in zip(rows_eff, rows_pts, rows_fg, rows_ft, rows_reb, rows_ast, rows_bs, rows_st, rows_to, rows_min):
                 columns_eff = row_eff.select("td")
                 columns_pts = row_pts.select("td")
@@ -123,15 +134,18 @@ for year in years:
                 columns_st = row_st.select("td")
                 columns_to = row_to.select("td")
                 columns_min = row_min.select("td")
+
+#Apsirašome sąlygas, kokių reikia galutinių duomenų iš lentelių, t. y. tikriname ar šaltiniuose yra daugiau nei 6
+# stulpeliai, pašaliname 3 paskutinius stulpelius, sukuriame data listą, ir perkeliame jį į sąrašą.
                 if (len(columns_eff) >= 6
                         and len(columns_pts) >= 6 and len(columns_fg) >= 6 and len(columns_ft) >= 6 and len(
-                            columns_reb) >= 6 and len(columns_ast) >= 6 and len(columns_bs) >= 6 and len(
+                            columns_reb) >= 6 and len(columns_ast) >= 6 and len (columns_bs) >= 6 and len(
                             columns_st) >= 6 and len(columns_to) >= 6 and len(columns_min) >= 6):
                     if all(col.text.strip() for col in columns_eff[:-3]):
                         data_eff = [year] + [col.text.strip() for col in columns_eff[:-3]]
                         data_list_eff.append(data_eff)
 
-                if (len(columns_pts) >= 6
+                if(len(columns_pts) >=6
                         and len(columns_eff) >= 6 and len(columns_fg) >= 6 and len(columns_ft) >= 6 and len(
                             columns_reb) >= 6 and len(columns_ast) >= 6 and len(columns_bs) >= 6 and len(
                             columns_st) >= 6 and len(columns_to) >= 6 and len(columns_min) >= 6):
@@ -186,7 +200,6 @@ for year in years:
                     if all(col.text.strip() for col in columns_st[:-3]):
                         data_st = [year] + [col.text.strip() for col in columns_st[:-3]]
                         data_list_st.append(data_st)
-
                 if (len(columns_to) >= 6
                         and len(columns_eff) >= 6 and len(columns_pts) >= 6 and len(columns_ft) >= 6 and len(
                             columns_ft) >= 6 and len(columns_reb) >= 6 and len(columns_ast) >= 6 and len(
@@ -203,86 +216,105 @@ for year in years:
                         data_min = [year] + [col.text.strip() for col in columns_min[:-3]]
                         data_list_min.append(data_min)
 
-                df_eff = pd.DataFrame(data_list_eff, columns=column_names['EFF'])
-                df_pts = pd.DataFrame(data_list_pts, columns=column_names['PTS'])
-                df_fg = pd.DataFrame(data_list_fg, columns=column_names['FG%'])
-                df_ft = pd.DataFrame(data_list_ft, columns=column_names['FT%'])
-                df_reb = pd.DataFrame(data_list_reb, columns=column_names['REB'])
-                df_ast = pd.DataFrame(data_list_ast, columns=column_names['AST'])
-                df_bs = pd.DataFrame(data_list_bs, columns=column_names['BS'])
-                df_st = pd.DataFrame(data_list_st, columns=column_names['ST'])
-                df_to = pd.DataFrame(data_list_to, columns=column_names['TO'])
-                df_min = pd.DataFrame(data_list_min, columns=column_names['MIN'])
+# Kiekvienai statistinei kategorijai sukuriame DataFrame
+df_eff = pd.DataFrame(data_list_eff, columns=column_names['EFF'])
+df_pts = pd.DataFrame(data_list_pts, columns=column_names['PTS'])
+df_fg = pd.DataFrame(data_list_fg, columns=column_names['FG%'])
+df_ft = pd.DataFrame(data_list_ft, columns=column_names['FT%'])
+df_reb = pd.DataFrame(data_list_reb, columns=column_names['REB'])
+df_ast = pd.DataFrame(data_list_ast, columns=column_names['AST'])
+df_bs = pd.DataFrame(data_list_bs, columns=column_names['BS'])
+df_st = pd.DataFrame(data_list_st, columns=column_names['ST'])
+df_to = pd.DataFrame(data_list_to, columns=column_names['TO'])
+df_min = pd.DataFrame(data_list_min, columns=column_names['MIN'])
 
-                result_df = pd.concat([df_eff, df_pts, df_fg, df_ft, df_reb, df_ast, df_bs, df_st, df_to, df_min],
-                                      axis=1)
-                result_df.to_csv('LMKL_statistika10.csv', index=False)
-                # print(result_df)
+# Sujungiame visus DataFrame į vieną failą
+result_df = pd.concat(
+    [df_eff, df_pts, df_fg, df_ft, df_reb, df_ast, df_bs, df_st, df_to, df_min], axis=1)
+# result_df.to_csv('LMKL_statistika.csv', index=False)
 
-                df_ast['AST'] = pd.to_numeric(df_ast['AST'].str.replace(',', '.'))
-                df_ast_top10 = df_ast.sort_values(by='AST', ascending=False).head(5)
-                plt.figure(figsize=(8, 6))
-                plt.bar(df_ast_top10['Žaidėja'], df_ast_top10['AST'], color='orange')
-                plt.title('5 geriausių žaidėjos pagal rezultatyvius perdavimus')
-                plt.xlabel('Žaidėja')
-                plt.ylabel('Rezultatyvūs perdavimai')
-                plt.xticks(rotation=35, ha='right', fontsize=7)
-                # plt.show()
+# Sukuriame top5 AST žaidėjų grafiką
+df_ast['AST'] = pd.to_numeric(df_ast['AST'].str.replace(',', '.'))
+df_ast_top5 = df_ast.sort_values(by='AST', ascending=False).head(8)
+plt.figure(figsize=(8, 12))
+plt.bar(df_ast_top5['Žaidėja'], df_ast_top5['AST'], color='green')
+plt.title('Geriausios 5 žaidėjos pagal rezultatyvius perdavimus')
+plt.xlabel('Žaidėja')
+plt.ylabel('Rezultatyvūs perdavimai')
+plt.xticks(rotation=35, ha='right', fontsize=10)
+for i, v in enumerate(df_ast_top5['AST']):
+    plt.text(i, v, str(round(v, 2)), ha='center', va='bottom', fontsize=12)
 
-                df_fg['FG%'] = pd.to_numeric(df_fg['FG%'].str.replace(',', '.').str.replace('%', ''))
-                df_fg_top5 = df_fg.sort_values(by='FG%', ascending=False).head(5)
-                plt.figure(figsize=(8, 6))
-                plt.bar(df_fg_top5['Žaidėja'], df_fg_top5['FG%'], color='orange')
-                plt.title('Geriausios 5 žaidėjos pagal metimų iš žaidimo pataikymo procentą (2018/2023)')
-                plt.xlabel('Žaidėja')
-                plt.ylabel('Metimų iš žaidimo procentas')
-                plt.xticks(rotation=35, ha='right', fontsize=7)
-                for i, v in enumerate(df_fg_top5['FG%']):
-                    plt.text(i, v + 1, str(round(v, 2)), ha='center', va='bottom', fontsize=8)
-                # plt.show()
+# Sukuriame top5 FG% žaidėjų sąrašą
+df_fg['FG%'] = pd.to_numeric(df_fg['FG%'].str.replace(',', '.').str.replace('%', ''))
+df_fg_top5 = df_fg.sort_values(by='FG%', ascending=False).head(5)
+plt.figure(figsize=(8, 12))
+plt.bar(df_fg_top5['Žaidėja'], df_fg_top5['FG%'], color='orange')
+plt.title('Geriausios 5 žaidėjos pagal metimų iš žaidimo pataikymo procentą (2018/2022)')
+plt.xlabel('Žaidėjas')
+plt.ylabel('Metimų iš žaidimo procentas')
+plt.xticks(rotation=35, ha='right', fontsize=10)
+for i, v in enumerate(df_fg_top5['FG%']):
+    plt.text(i, v + 1, str(round(v, 2)), ha='center', va='bottom', fontsize=12)
 
-                result_df['EFF'] = result_df['EFF'].str.replace(',', '.').astype(float)
-                result_df['PTS'] = result_df['PTS'].str.replace(',', '.').astype(float)
-                result_df['TO'] = result_df['TO'].str.replace(',', '.').astype(float)
-                result_df['ST'] = result_df['ST'].str.replace(',', '.').astype(float)
-                result_df['MIN'] = result_df['MIN'].str.replace(',', '.').astype(float)
-                result_df['REB'] = result_df['REB'].str.replace(',', '.').astype(float)
+# Sukuriame top5 MIN žaidėjų sąrašą
+df_min['MIN'] = pd.to_numeric(df_min['MIN'].str.replace(',', '.'))
+df_min_top5 = df_min.sort_values(by='MIN', ascending=False).head(5)
+plt.figure(figsize=(8, 12))
+plt.bar(df_min_top5['Žaidėja'], df_min_top5['MIN'], color='blue')
+plt.title('5 vidutiniškai daugiausiai laiko žaidžiančios krepšininkės (2018/2022)')
+plt.xlabel('Žaidėja')
+plt.ylabel('Vidutiniškas MIN skaičius per varžybas')
+plt.xticks(rotation=35, ha='right', fontsize=10)
+for i, v in enumerate(df_min_top5['MIN']):
+    plt.text(i, v + 1, str(round(v, 2)), ha='center', va='bottom', fontsize=12)
 
-                corellation_matrix = result_df[['EFF', 'PTS', 'TO', 'ST', 'MIN', 'REB']].corr()
-                # print(corellation_matrix)
+# Sukuriame koreliacijos matricą pagal pasirinktus rodiklius
+result_df['EFF'] = result_df['EFF'].str.replace(',', '.').astype(float)
+result_df['PTS'] = result_df['PTS'].str.replace(',', '.').astype(float)
+result_df['TO'] = result_df['TO'].str.replace(',', '.').astype(float)
+result_df['ST'] = result_df['ST'].str.replace(',', '.').astype(float)
+result_df['MIN'] = result_df['MIN'].str.replace(',', '.').astype(float)
+result_df['REB'] = result_df['REB'].str.replace(',', '.').astype(float)
 
-                plt.figure(figsize=(10, 8))
-                sns.heatmap(corellation_matrix, annot=True, cmap='coolwarm', fmt='.2f')
-                plt.title('Koreliacija tarp EFF, PTS, TO, ST, MIN ir REB statistikos rodiklių')
-                # plt.show()
+corellation_matrix = result_df[['EFF', 'PTS', 'TO', 'ST', 'MIN', 'REB']].corr()
 
-                image = Image.open('MLKL_logo.jpg')
-                image_array = np.array(image)
+# Sukuriame koreliacijos matricos diagramą
+plt.figure(figsize=(10, 8))
+sns.heatmap(corellation_matrix, annot=True, cmap='coolwarm', fmt='.2f')
+plt.title('Koreliacija tarp EFF, PTS, TO, ST, MIN ir REB statistikos rodiklių')
 
-
-                def rgb2grey(rgb):
-                    return np.dot(rgb[..., :3], [0.2989, 0.5870, 0.1140])
-
-
-                def normalize_image(image_array):
-                    return image_array / 255.0
+# Atliekame LMKL logotipo pakeitimus pagal spalvas
+image = Image.open('MLKL_logo.jpg')
+image_array = np.array(image)
 
 
-                gray_image_array = rgb2grey(image_array)
-                plt.figure(figsize=(10, 5))
-                plt.subplot(1, 3, 1)
-                plt.imshow(image)
-                plt.title('Originali nuotrauka')
-                plt.axis('off')
+def rgb2grey(rgb):
+    return np.dot(rgb[..., :3], [0.2989, 0.5870, 0.1140])
 
-                plt.subplot(1, 3, 2)
-                plt.imshow(gray_image_array, cmap=plt.get_cmap('gray'))
-                plt.title('Pilka')
-                plt.axis('off')
 
-                plt.subplot(1, 3, 3)
-                plt.imshow(normalize_image(gray_image_array))
-                plt.title('Idomi')
-                plt.axis('off')
+def normalize_image(image_array):
+    return image_array / 255.0
 
-                # plt.show()
+
+gray_image_array = rgb2grey(image_array)
+plt.figure(figsize=(10, 5))
+plt.subplot(1, 3, 1)
+plt.imshow(image)
+plt.title('Originali nuotrauka')
+plt.axis('off')
+
+plt.subplot(1, 3, 2)
+plt.imshow(gray_image_array, cmap=plt.get_cmap('gray'))
+plt.title('Pilka')
+plt.axis('off')
+
+plt.subplot(1, 3, 3)
+plt.imshow(normalize_image(gray_image_array))
+plt.title('Po normalizacijos')
+plt.axis('off')
+
+
+
+
+
