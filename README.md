@@ -32,7 +32,6 @@ Tai yra pagrindinė projekto byla, kurioje buvo atlikta visa analizė. Visi vaiz
 Iš surinktų duomenų išrinkome 2018-2022 metų sezonų 5 taikliausias žaidėjas ir atvaizdavome grafike naudodamiesi MatplotLib.
 
 
-Iš surinktų duomenų išrinkome visų sezonų taikliausias žaidėjas ir atvaizdavome grafike
 
 ![Top 5 taiklausios žaidėjos 2018-2022 metais](https://github.com/Laisvida/Final_project/blob/main/Top%205%20pagal%20metim%C5%B3%20pataikymo%20procent%C4%85.PNG)
 
