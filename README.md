@@ -33,3 +33,8 @@ Baigiamasis_darbas.py
 Tai yra pagrindinė projekto byla, kurioje buvo atlikta visa analizė. _Visi vaizdai yra valdomi funkcijomis, kurios
 padeda atskirti visus kode esančius grafikus.
 _
+
+![Top 5 taiklausios žaidėjos 2018-2023 metais](https://github.com/Laisvida/Final_project/blob/main/Top%205%20pagal%20metim%C5%B3%20pataikymo%20procent%C4%85.PNG)
+
+![Top 5 taiklausios žaidėjos 2018-2023 metais](./main/Top%205%20pagal%20metim%C5%B3%20pataikymo%20procent%C4%85.PNG)
+
