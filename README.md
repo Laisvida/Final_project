@@ -38,7 +38,7 @@ Iš surinktų duomenų išrinkome visų sezonų taikliausias žaidėjas ir atvai
 Šiame grafike atvaizdavome 5 visų mūsų nagrinėtų sezonų krepšininkes, kurios žaidžia daugiausiai laiko per varžybas.
 
 ![Top 5 daugiausia laiko žaidžiančios žaidėjos](https://github.com/Laisvida/Final_project/blob/main/Top%205%20daugiausiai%20laiko%20%C5%BEaid%C5%BEian%C4%8Dios%20krep%C5%A1inink%C4%97s.PNG)
-![Top 5 daugiausia laiko žaidžiančios žaidėjos](./main/Top%205%20daugiausiai%20laiko%20%C5%BEaid%C5%BEian%C4%8Dios%20krep%C5%A1inink%C4%97s.PNG])
+
 
 Varžybų rezultatui didelę įtaką daro rezultatyvūs perdavimai. Grafike vizualizavome 5 geriausias sportininkes pagal rezultatyvius perdavimus 
 
