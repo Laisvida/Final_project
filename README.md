@@ -60,14 +60,14 @@ koreliacijos koeficientus tarp 'EFF', 'PTS', 'TO', 'ST', 'MIN' ir 'REB' stulpeli
 
 Mokymų metu sužinotą informaciją apie NumPy biblioteką panaudojome logotipo keitimui. Spalvotą paveikslėlį pakeitėme į pilkąją ir normalizuotą.
 Paveikslėlio vizualizacijai panaudota Matplotlib biblioteka. Gavome 3 skirtingus paveikslėlius
-+Originalus paveikslėlis.
--Pilkas paveikslėlis.
-*Paveikslėlis po normalizacijos.
++ Originalus paveikslėlis.
+- Pilkas paveikslėlis.
+* Paveikslėlis po normalizacijos.
 
 
 
 
-![Logotipas](https://github.com/Laisvida/Final_project/blob/main/Logo.PNG)
+![Logotipas](https://github.com/Laisvida/Final_project/blob/main/Logotipas.PNG)
 
 
 
